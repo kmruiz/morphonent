@@ -7,6 +7,7 @@ export default {
         format: 'esm'
     },
     plugins: [
-        babel()
+        babel(),
+        uglify()
     ]
 };

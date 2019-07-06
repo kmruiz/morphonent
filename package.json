@@ -45,6 +45,7 @@
     "jest": "^24.8.0",
     "regenerator-runtime": "^0.13.2",
     "rollup": "^1.16.6",
-    "rollup-plugin-babel": "^4.3.3"
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify": "^6.0.2"
   }
 }
