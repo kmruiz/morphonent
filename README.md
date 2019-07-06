@@ -10,6 +10,7 @@ morphonent is a JavaScript library for building web user interfaces
 * **Functional**. Side-effect free and simple, your components will remain reasonable.
 * **No special syntax by default**. Uses plain functions, no special syntax.
 * **Small**. No runtime dependencies.
+* **Async by default**. Designed to load asynchronously components.
 
 ## Installation
 
@@ -168,3 +169,95 @@ The application consists of two components: **hello** and **bye**. Both are impl
 clicked, will become the other component. So for example, if I have a `Hello` button and I click, it 
 will become a `Bye` button. Later, if I click the `Bye` button, it will become a `Hello` button, and so on.
 
+### Async Loading of Components
+
+When morphonent finds out that a component is wrapped in a promise, will delay the rendering of the component
+until the promise has been fulfilled. This will work in both the root component and subcomponents.
+
+Let's take a look at this sample application, that will load the list of languages used in a project from
+Github:
+
+```js
+import { renderOn, element } from './node_modules/morphonent/dist/index.js'
+
+function loadLanguages(owner, repository) {
+    return fetch('https://api.github.com/repos/' + owner + '/' + repository + '/languages')
+        .then(response => response.status === 200 ? response.json() : {})
+        .then(langs => Object.keys(langs))
+        .catch(ex => []);
+}
+
+async function languageList(owner, repository) {
+    const languages = await loadLanguages(owner, repository)
+    return element('ul', {},
+        languages.map(lang => element('li', {}, lang))
+    )
+}
+
+function repositoryInformation(owner, repository, onNewRepositoryInfo) {
+    return element('div', {},
+        element('div', {}, 
+            element('input', { 
+                type: 'text', 
+                value: owner, 
+                onchange: (e) => onNewRepositoryInfo(e.target.value, repository)
+            }),
+        ),
+        element('div', {}, 
+            element('input', { 
+                type: 'text', 
+                value: repository, 
+                onchange: (e) => onNewRepositoryInfo(owner, e.target.value)
+            }),
+        ),
+    )
+}
+
+async function application(owner, repository) {
+    return [ 
+        repositoryInformation(owner, repository, application ), 
+        await languageList(owner, repository)
+    ]
+}
+
+renderOn('body', application("kmruiz", "morphonent"))
+```
+
+Loading the language list is asynchronous (it's an AJAX request), but the inputs are synchronous. Loading
+the language information won't block the rendering of other components.
+
+## Using JSX
+
+To use JSX, you will need [babel](https://babeljs.io/) and [babel-plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx). You will need to add the following configuration
+to your .babelrc:
+
+```js
+{
+  "plugins": [
+      //...
+    ["@babel/plugin-transform-react-jsx", {
+      "pragma": "element",
+      "pragmaFrag": "element",
+      "throwIfNamespace": false
+    }]
+  ]
+}
+```
+
+And you will be able to use JSX in your application! However, there are some limitations:
+
+* JSX only works for HTML elements. You can't use JSX syntax for composing your own components (yet).
+
+For example, this doesn't work:
+
+```jsx
+<div>
+    <MyComponent size="XS" />
+</div>
+```
+
+You will need to do it with the normal function call syntax:
+
+```jsx
+<div>{MyComponent({size: "XS"})}</div>
+```
