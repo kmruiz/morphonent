@@ -1,6 +1,6 @@
 {
   "name": "morphonent",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "UI functional microframework",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -19,14 +19,16 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --coverage --watchAll",
+    "test:once": "jest",
     "test:ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "build": "rollup -c",
     "lint": "eslint -c .eslintrc.json lib/",
     "lint:fix": "eslint -c .eslintrc.json --fix lib/",
     "verify": "yarn lint && yarn test:ci && yarn build",
-    "release:patch": "yarn verify && yarn version --patch",
-    "release:minor": "yarn verify && yarn version --minor",
-    "release:major": "yarn verify && yarn version --major"
+    "verify:once": "yarn lint && yarn test:once && yarn build",
+    "release:patch": "yarn verify:once && yarn version --patch",
+    "release:minor": "yarn verify:once && yarn version --minor",
+    "release:major": "yarn verify:once && yarn version --major"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
