@@ -164,7 +164,7 @@ function bye() {
 renderOn('body', hello)
 ```
 
-The application consists on two components: **hello** and **bye**. Both are implemented as a button that, when
+The application consists of two components: **hello** and **bye**. Both are implemented as a button that, when
 clicked, will become the other component. So for example, if I have a `Hello` button and I click, it 
 will become a `Bye` button. Later, if I click the `Bye` button, it will become a `Hello` button, and so on.
 
