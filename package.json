@@ -1,6 +1,6 @@
 {
   "name": "morphonent",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "UI functional microframework",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -46,6 +46,6 @@
     "regenerator-runtime": "^0.13.2",
     "rollup": "^1.16.6",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-uglify": "^6.0.2"
+    "rollup-plugin-terser": "^5.1.0"
   }
 }
