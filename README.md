@@ -4,6 +4,9 @@
 ![npm](https://img.shields.io/npm/v/morphonent.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/morphonent.svg) 
 ![npm](https://img.shields.io/npm/dm/morphonent.svg)
+![npm](https://img.shields.io/npm/l/morphonent.svg)
+![GitHub issues](https://img.shields.io/github/issues/kmruiz/morphonent.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/kmruiz/morphonent.svg)
 
 morphonent is a JavaScript library for building web user interfaces
 
