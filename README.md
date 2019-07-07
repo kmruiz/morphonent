@@ -31,7 +31,7 @@ with babel.
 ## Getting Started
 
 You can have a simple morphonent application in few minutes with webpack. You can see how [in the getting
-started guide on our wiki](wiki/Getting-Started).
+started guide on our wiki](https://github.com/kmruiz/morphonent/wiki/Getting-Started).
 
 ### Async Loading of Components
 
