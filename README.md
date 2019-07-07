@@ -98,7 +98,7 @@ function application(personName) {
 renderOn('body', application(''))
 ```
 
-Let's explain the code from bit to bit. What we are seeing is how the the whole library works.
+Let's explain the code from bit to bit. What we are seeing is how the whole library works.
 
 ```js
 function name(input, onChange) {
