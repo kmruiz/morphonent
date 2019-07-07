@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/kmruiz/morphonent/badge.svg?branch=master)](https://coveralls.io/github/kmruiz/morphonent?branch=master) 
 ![npm](https://img.shields.io/npm/v/morphonent.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/morphonent.svg) 
-![npm](https://img.shields.io/npm/dw/morphonent.svg)
+![npm](https://img.shields.io/npm/dm/morphonent.svg)
 
 morphonent is a JavaScript library for building web user interfaces
 
