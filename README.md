@@ -33,13 +33,10 @@ with babel.
 You can have a simple morphonent application in few minutes with webpack. You can see how [in the getting
 started guide on our wiki](https://github.com/kmruiz/morphonent/wiki/Getting-Started).
 
-### Async Loading of Components
-
-When morphonent finds out that a component is wrapped in a promise, will delay the rendering of the component
-until the promise has been fulfilled. This will work in both the root component and subcomponents.
+## How does it look like?
 
 Let's take a look at this sample application, that will load the list of languages used in a project from
-Github:
+GitHub:
 
 ```js
 import { renderOn, element } from './node_modules/morphonent/dist/index.js'
@@ -86,9 +83,6 @@ async function application(owner, repository) {
 
 renderOn('body', application("kmruiz", "morphonent"))
 ```
-
-Loading the language list is asynchronous (it's an AJAX request), but the inputs are synchronous. Loading
-the language information won't block the rendering of other components.
 
 ## Using JSX
 
