@@ -39,7 +39,7 @@ Let's take a look at this sample application, that will load the list of languag
 GitHub:
 
 ```js
-import { renderOn, element } from './node_modules/morphonent/dist/index.js'
+import { renderOn, element } from 'morphonent'
 
 function loadLanguages(owner, repository) {
     return fetch('https://api.github.com/repos/' + owner + '/' + repository + '/languages')
