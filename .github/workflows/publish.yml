@@ -23,8 +23,9 @@ jobs:
     - name: Publish to npm
       uses: actions/npm@master
       args: publish
-      secrets:
-        : ${{ secrets.github_token }}
+      with:
+        secrets:
+          - ${{ secrets.github_token }}
     - name: Publish a release
       uses: elgohr/Github-Release-Action@master
       env:
