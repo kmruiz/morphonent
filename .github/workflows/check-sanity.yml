@@ -23,6 +23,6 @@ jobs:
         CI: true
     - name: Send coverage information to coveralls
       uses: coverallsapp/github-action@master
-      secrets:
-        - NPM_AUTH_TOKEN
+      with:
+        github-token: ${{ secrets.github_token }}
 
