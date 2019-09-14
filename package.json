@@ -19,7 +19,7 @@
   "scripts": {
     "test": "jest --coverage --watchAll",
     "test:once": "jest",
-    "test:ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:ci": "jest --coverage",
     "build": "rollup -c",
     "lint": "eslint -c .eslintrc.json lib/",
     "lint:fix": "eslint -c .eslintrc.json --fix lib/",
