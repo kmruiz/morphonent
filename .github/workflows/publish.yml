@@ -26,10 +26,3 @@ jobs:
         args: publish
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - name: Get Tag name for github release 
-      uses: olegtarasov/get-tag@v1
-    - name: Publish a release
-      uses: elgohr/Github-Release-Action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.github_token }}
-        TAG: ${GITHUB_TAG_NAME}
