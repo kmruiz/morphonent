@@ -1,4 +1,4 @@
-name: Check Sanity of the current commit or pull-request
+name: Build
 
 on: [push, pull_request]
 
