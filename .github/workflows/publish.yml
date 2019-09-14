@@ -32,4 +32,4 @@ jobs:
       uses: elgohr/Github-Release-Action@master
       env:
         GITHUB_TOKEN: ${{ secrets.github_token }}
-        TAG: ${{ GITHUB_TAG_NAME }}
+        TAG: ${GITHUB_TAG_NAME}
