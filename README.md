@@ -1,5 +1,5 @@
 # morphonent 
-[![Build Status](https://travis-ci.org/kmruiz/morphonent.svg?branch=master)](https://travis-ci.org/kmruiz/morphonent)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fkmruiz%2Fmorphonent%2Fbadge&style=flat)](https://actions-badge.atrox.dev/kmruiz/morphonent/goto)
 [![Coverage Status](https://coveralls.io/repos/github/kmruiz/morphonent/badge.svg?branch=master)](https://coveralls.io/github/kmruiz/morphonent?branch=master) 
 ![npm](https://img.shields.io/npm/v/morphonent.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/morphonent.svg) 
@@ -102,20 +102,4 @@ to your .babelrc:
 }
 ```
 
-And you will be able to use JSX in your application! However, there are some limitations:
-
-* JSX only works for HTML elements. You can't use JSX syntax for composing your own components (yet).
-
-For example, this doesn't work:
-
-```jsx
-<div>
-    <MyComponent size="XS" />
-</div>
-```
-
-You will need to do it with the normal function call syntax:
-
-```jsx
-<div>{MyComponent({size: "XS"})}</div>
-```
+And you will be able to use JSX in your application!
