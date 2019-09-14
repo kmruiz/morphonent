@@ -25,12 +25,7 @@ jobs:
       args: publish
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      with:
-        secrets:
-          - ${{ secrets.github_token }}
     - name: Publish a release
       uses: elgohr/Github-Release-Action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: New release
