@@ -20,7 +20,14 @@ jobs:
         yarn verify
       env:
         CI: true
-    - name: Publish the package to npm
+    - name: Publish to npm
       uses: actions/npm@master
+      args: publish
+      secrets:
+        : ${{ secrets.github_token }}
+    - name: Publish a release
+      uses: elgohr/Github-Release-Action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        github-token: ${{ secrets.github_token }}
+        args: New release
