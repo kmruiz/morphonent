@@ -1,4 +1,4 @@
-name: Node CI
+name: Check Sanity of the current commit or pull-request
 
 on: [push, pull_request]
 
