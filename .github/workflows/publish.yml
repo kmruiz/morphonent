@@ -1,0 +1,26 @@
+name: Publish package publicly
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Verify with yarn that the build is possible
+      run: |
+        yarn
+        yarn verify
+      env:
+        CI: true
+    - name: Publish the package to npm
+      uses: actions/npm@master
+      with:
+        github-token: ${{ secrets.github_token }}
