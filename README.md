@@ -35,6 +35,8 @@ started guide on our wiki](https://github.com/kmruiz/morphonent/wiki/Getting-Sta
 
 ## How does it look like?
 
+[If you want to see a JSX example application, click here](https://github.com/kmruiz/morphonent-example).
+
 Let's take a look at this sample application, that will load the list of languages used in a project from
 GitHub:
 
