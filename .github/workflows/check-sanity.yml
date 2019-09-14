@@ -15,15 +15,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: Verify with yarn that the build is possible
       run: |
         yarn
         yarn verify
       env:
         CI: true
-    - name: Coveralls
+    - name: Send coverage information to coveralls
       uses: coverallsapp/github-action@master
       with:
-        github-token: ${{ secrets.COVERALLS_GITHUB_TOKEN }}
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        github-token: ${{ secrets.github_token }}
