@@ -41,49 +41,16 @@ Let's take a look at this sample application, that will load the list of languag
 GitHub:
 
 ```js
-import { renderOn, element } from 'morphonent'
+const Counter = ({times}) => <span>{times}</span>
+const Increase = ({onIncrement}) => <button onclick={onIncrement}>+1</button>
+const Decrease = ({onDecrease}) => <button onclick={onDecrease}>-1</button>
+const Application = ({times}) => <div>
+    <Counter times={times} />
+    <Increase onIncrement={() => <Application times={times + 1} />}/>
+    <Decrease onDecrease={() => <Application times={times - 1} />}/>
+</div>
 
-function loadLanguages(owner, repository) {
-    return fetch('https://api.github.com/repos/' + owner + '/' + repository + '/languages')
-        .then(response => response.status === 200 ? response.json() : {})
-        .then(langs => Object.keys(langs))
-        .catch(ex => []);
-}
-
-async function languageList(owner, repository) {
-    const languages = await loadLanguages(owner, repository)
-    return element('ul', {},
-        languages.map(lang => element('li', {}, lang))
-    )
-}
-
-function repositoryInformation(owner, repository, onNewRepositoryInfo) {
-    return element('div', {},
-        element('div', {}, 
-            element('input', { 
-                type: 'text', 
-                value: owner, 
-                onchange: (e) => onNewRepositoryInfo(e.target.value, repository)
-            }),
-        ),
-        element('div', {}, 
-            element('input', { 
-                type: 'text', 
-                value: repository, 
-                onchange: (e) => onNewRepositoryInfo(owner, e.target.value)
-            }),
-        ),
-    )
-}
-
-async function application(owner, repository) {
-    return [ 
-        repositoryInformation(owner, repository, application ), 
-        await languageList(owner, repository)
-    ]
-}
-
-renderOn('body', application("kmruiz", "morphonent"))
+renderOn('body', <Application times={0} />)
 ```
 
 ## Using JSX
