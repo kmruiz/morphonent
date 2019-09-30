@@ -41,16 +41,16 @@ Let's take a look at this sample application, that will load the list of languag
 GitHub:
 
 ```js
-const Counter = ({times}) => <span>{times}</span>
-const Increase = ({onIncrement}) => <button onclick={onIncrement}>+1</button>
-const Decrease = ({onDecrease}) => <button onclick={onDecrease}>-1</button>
-const Application = ({times}) => <div>
-    <Counter times={times} />
-    <Increase onIncrement={() => <Application times={times + 1} />}/>
-    <Decrease onDecrease={() => <Application times={times - 1} />}/>
-</div>
+const counter = times => element('span', {}, times)
+const increase = onIncrement => element('button', {onclick: onIncrement}, '+1')
+const decrease = onDecrease => element('button', {onclick: onDecrease}, '-1')
+const application = times => element('div', {},
+    counter(times),
+    increase(() => application(times + 1)),
+    decrease(() => application(times - 1))
+)
 
-renderOn('body', <Application times={0} />)
+renderOn('body', application(0))
 ```
 
 ## Using JSX
@@ -71,4 +71,18 @@ to your .babelrc:
 }
 ```
 
+The previous example can be rewritten in JSX as follows:
+
+```js
+const Counter = ({times}) => <span>{times}</span>
+const Increase = ({onIncrement}) => <button onclick={onIncrement}>+1</button>
+const Decrease = ({onDecrease}) => <button onclick={onDecrease}>-1</button>
+const Application = ({times}) => <div>
+    <Counter times={times} />
+    <Increase onIncrement={() => <Application times={times + 1} />}/>
+    <Decrease onDecrease={() => <Application times={times - 1} />}/>
+</div>
+
+renderOn('body', <Application times={0} />)
+```
 And you will be able to use JSX in your application!
