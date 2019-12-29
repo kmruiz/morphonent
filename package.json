@@ -1,6 +1,6 @@
 {
   "name": "morphonent",
-  "version": "0.12.5",
+  "version": "0.12.6",
   "description": "UI functional microframework",
   "main": "dist/index.js",
   "keywords": [
