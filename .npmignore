@@ -5,3 +5,4 @@
 .eslintrc.json
 .travis.yml
 rollup.config.js
+.github
