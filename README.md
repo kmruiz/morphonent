@@ -21,7 +21,7 @@ For more information about the mission of morphonent, please check this [dev.to 
 
 morphonent is a simple npm package that you can install with yarn:
 
-`$> yarn install morphonent`
+`$> yarn add morphonent`
 
 or npm:
 
