@@ -15,6 +15,8 @@ morphonent is a JavaScript library for building web user interfaces
 * **Small**. No runtime dependencies.
 * **Async by default**. Designed to load asynchronously components.
 
+For more information about the mission of morphonent, please check this [dev.to post](https://dev.to/kmruiz/domain-driven-design-and-functional-pure-ui-components-29a7)
+
 ## Installation
 
 morphonent is a simple npm package that you can install with yarn:
