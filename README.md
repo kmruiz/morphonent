@@ -1,6 +1,6 @@
 # morphonent 
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fkmruiz%2Fmorphonent%2Fbadge&style=flat)](https://actions-badge.atrox.dev/kmruiz/morphonent/goto)
-[![Coverage Status](https://coveralls.io/repos/github/kmruiz/morphonent/badge.svg?branch=master)](https://coveralls.io/github/kmruiz/morphonent?branch=master) 
+![Coveralls github](https://img.shields.io/coveralls/github/kmruiz/morphonent)
 ![npm](https://img.shields.io/npm/v/morphonent.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/morphonent.svg) 
 ![npm](https://img.shields.io/npm/dm/morphonent.svg)
