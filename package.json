@@ -23,11 +23,12 @@
     "build": "rollup -c",
     "lint": "eslint -c .eslintrc.json lib/",
     "lint:fix": "eslint -c .eslintrc.json --fix lib/",
-    "verify": "yarn lint && yarn test:ci && yarn build",
-    "verify:once": "yarn lint && yarn test:once && yarn build",
-    "release:patch": "yarn verify:once && yarn version --patch",
-    "release:minor": "yarn verify:once && yarn version --minor",
-    "release:major": "yarn verify:once && yarn version --major"
+    "verify": "npm run lint && npm run test:ci && npm run build",
+    "verify:once": "npm run lint && npm run test:once && npm run build",
+    "release:patch": "npm run verify:once && npm version patch",
+    "release:minor": "npm run verify:once && npm version minor",
+    "release:major": "npm run verify:once && npm version major",
+    "release": "git push && git push --tags"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
